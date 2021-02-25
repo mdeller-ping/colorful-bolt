@@ -668,6 +668,17 @@ pingaccess-admin:
   image:
     name: pingaccess
 
+  workload:
+    type: StatefulSet
+    statefulSet:
+      persistentvolume:
+        volumes:
+          out-dir:
+            persistentVolumeClaim:
+              resources:
+                requests:
+                  storage: 8Gi
+
   # Example: If PingAccess Admin relies on pingfederate-admin for AuthN
   #          Creates init container wait-for on pingfederate-admin https service
   #
